@@ -1,0 +1,57 @@
+[
+  {
+    "id": "default-hn",
+    "url": "https://hnrss.org/frontpage",
+    "title": "Hacker News"
+  },
+  {
+    "id": "default-lobsters",
+    "url": "https://lobste.rs/rss",
+    "title": "Lobsters"
+  },
+  {
+    "id": "default-ars",
+    "url": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Ars Technica"
+  },
+  {
+    "id": "default-verge",
+    "url": "https://www.theverge.com/rss/index.xml",
+    "title": "The Verge"
+  },
+  {
+    "id": "default-github-blog",
+    "url": "https://github.blog/feed/",
+    "title": "GitHub Blog"
+  },
+  {
+    "id": "default-infoq",
+    "url": "https://feed.infoq.com/",
+    "title": "InfoQ"
+  },
+  {
+    "id": "default-cloudflare",
+    "url": "https://blog.cloudflare.com/rss/",
+    "title": "Cloudflare Blog"
+  },
+  {
+    "id": "default-martin-fowler",
+    "url": "https://martinfowler.com/feed.atom",
+    "title": "Martin Fowler"
+  },
+  {
+    "id": "default-stack-overflow-blog",
+    "url": "https://stackoverflow.blog/feed/",
+    "title": "Stack Overflow Blog"
+  },
+  {
+    "id": "default-smashing",
+    "url": "https://www.smashingmagazine.com/feed/",
+    "title": "Smashing Magazine"
+  },
+  {
+    "id": "default-slashdot",
+    "url": "https://rss.slashdot.org/Slashdot/slashdotMain",
+    "title": "Slashdot"
+  }
+]
