@@ -2,7 +2,8 @@
 
 A minimalist RSS reader with a geeky aesthetic: dark background, monospace fonts, text-first and link-first design, free from flashy decorations.
 
-<img width="1273" height="652" alt="image" src="https://github.com/user-attachments/assets/7097831b-ee5f-4fc0-817f-1d73f2a7d70b" />
+<img width="1262" height="647" alt="image" src="https://github.com/user-attachments/assets/21c16a91-394c-45de-b50f-382517b86c4b" />
+
 
 
 ## Features
