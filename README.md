@@ -1,6 +1,128 @@
 # GeekRSS
 
+A minimalist RSS reader with a geeky aesthetic: dark background, monospace fonts, text-first and link-first design, free from flashy decorations.
+
+<img width="1262" height="647" alt="image" src="https://github.com/user-attachments/assets/21c16a91-394c-45de-b50f-382517b86c4b" />
+
+
+
+## Features
+
+- Comes pre-loaded with a curated list of high-quality tech RSS feeds, ready to read out of the box
+- Minimalist interface preserving a terminal vibe and old-school hacker flavor
+- User-added RSS feeds are stored locally in the browser, independent of server-side storage
+- Server-side API handles feed fetching and parsing, avoiding CORS issues on the client side
+- Supports automatic deployment to Vercel via GitHub Actions
+
+## Tech Stack
+
+- `Next.js 16`
+- `React 19`
+- `TypeScript 5`
+- `Tailwind CSS 4`
+- `rss-parser`
+- `pnpm`
+
+## Local Development
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+Start the Next.js development server:
+
+```bash
+pnpm exec next dev
+```
+
+Open http://localhost:3000 to view the app.
+
+## Validation Commands
+
+Type checking and linting:
+
+```bash
+pnpm validate
+```
+
+Run directory-specific tests:
+
+```bash
+pnpm test src/lib/feed-catalog.test.ts
+```
+
+## Data Model
+
+- Default feeds are defined in `data/feeds.json`
+- On page initialization, default feeds are fetched from `/api/feeds`
+- Manually added feeds are persisted to `localStorage`
+- Default feeds remain immutable; custom feeds can be removed within the current browser context
+
+Rationale: Vercel's Serverless runtime environment is unsuitable for long-term local file persistence. Storing user data in the browser is the most reliable approach.
+
+## Automatic Deployment to Vercel
+
+This repository includes a GitHub Actions workflow: `.github/workflows/deploy-vercel.yml`
+
+First, link your project to Vercel. Then configure the following three secrets in your GitHub repository settings:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+
+### 1. Create Project on Vercel
+
+After pushing this repo to GitHub, create a new project on Vercel and select `Next.js` as the framework preset.
+
+### 2. Obtain Required Vercel Parameters
+
+Install and log in to the Vercel CLI locally, then run the following command in the project root:
+
+```bash
+pnpm dlx vercel link
+```
+
+Upon completion, `.vercel/project.json` will be generated, containing the `projectId`. The organization ID can also be retrieved from this file or the Vercel dashboard.
+
+### 3. Configure GitHub Secrets
+
+Navigate to your GitHub repository:
+
+`Settings` -> `Secrets and variables` -> `Actions`
+
+Add the following secrets:
+
+- `VERCEL_TOKEN`: Your Vercel personal access token
+- `VERCEL_ORG_ID`: Your Vercel team or personal account ID
+- `VERCEL_PROJECT_ID`: The ID of your current project
+
+### 4. Trigger Automatic Deployment via Push
+
+The workflow runs automatically on pushes to the `main` branch:
+
+1. Install dependencies
+2. Execute `pnpm validate`
+3. Pull Vercel environment information
+4. Build production artifacts
+5. Deploy to the Vercel production environment
+
+## Directory Structure
+
+```text
+data/                       Default RSS feeds
+src/app/page.tsx            Main application page
+src/app/api/feeds           API endpoints for default feeds & validation
+src/app/api/feeds/items     Endpoint for fetching individual RSS entries
+src/lib/feed-catalog.ts     Logic for merging default and custom feeds
+.github/workflows           Automatic deployment workflows
+```
+
+# GeekRSS
+
 一个偏极客审美的极简 RSS 阅读器：黑底、等宽字体、文本优先、链接优先、无花哨装饰。
+
 
 ## 特性
 
