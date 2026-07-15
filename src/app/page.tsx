@@ -16,6 +16,11 @@ interface FeedItem {
 }
 
 const CUSTOM_FEEDS_STORAGE_KEY = 'geekrss.custom-feeds.v1';
+const CREATOR_LINKS = [
+  { label: 'github', href: 'https://github.com/NoahIsARider' },
+  { label: 'site', href: 'https://noahisarider.github.io/' },
+  { label: 'source', href: 'https://github.com/NoahIsARider/GeekRSS' },
+] as const;
 
 function formatDate(d: string): string {
   if (!d) return '';
@@ -301,7 +306,20 @@ export default function Home() {
 
       {/* footer */}
       <footer className="mt-12 pt-4 border-t border-border text-muted text-[11px]">
-        rss — no cookies, no tracking, just feeds
+        <div>rss - no cookies, no tracking, just feeds</div>
+        <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+          {CREATOR_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted underline underline-offset-2 hover:text-accent-green"
+            >
+              {link.label}: {link.href}
+            </a>
+          ))}
+        </div>
       </footer>
     </div>
   );
